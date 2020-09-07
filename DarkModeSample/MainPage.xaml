@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DarkModeSample.MainPage"  BackgroundColor="Transparent">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DarkModeSample.MainPage" BackgroundColor="Transparent">
     <StackLayout >
         <Frame BackgroundColor="{AppThemeBinding Light='#2196F3', Dark=White}" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Light=White, Dark=Black}" FontSize="36" />
+            <Label Margin="0,20,0,0" Text="Dark Mode" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Dark=Black, Light=White}" FontSize="36" />
         </Frame>
         <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10" />
         <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0" />
-        <Label FontSize="16" Padding="30,24,30,0" TextColor="{AppThemeBinding Light=Black, Dark=White}">
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.TextColor>
+                <AppThemeBinding Light="Blue" Dark="Yellow" />
+            </Label.TextColor>
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
@@ -18,5 +21,7 @@
         </Label>
         <Label x:Name="currentThemeLabel" Text="Light" FontSize="Title" Padding="30,10,30,10" />
         <!-- TODO Image -->
+
+        <Image Source="{AppThemeBinding Light=Xamagon_color.png, Dark=Xamagon_white.png}"/>
     </StackLayout>
 </ContentPage>
